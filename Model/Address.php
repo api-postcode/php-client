@@ -42,7 +42,7 @@ class Address
     public function __construct($street, $zipCode, $houseNumber, $city)
     {
         $this->street      = $street;
-        $this->zipcode     = $zipCode;
+        $this->zipCode     = $zipCode;
         $this->houseNumber = $houseNumber;
         $this->city        = $city;
     }
