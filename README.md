@@ -20,7 +20,7 @@ Usage
 -----
 ``` php
 $token = 'secret-token';
-$client = new ApiPostcode\Client($token);
+$client = new ApiPostcode\Client\PostcodeClient($token);
 
 $address = $client->fetchAddress('1012JS', 1);
 
