@@ -110,4 +110,19 @@ class Address
     {
         $this->longitude = $longitude;
     }
+    
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'street'       => $this->street,
+            'city'         => $this->city,
+            'house_number' => $this->houseNumber,
+            'zip_code'     => $this->zipCode,
+            'longitude'    => $this->longitude,
+            'latitude'     => $this->latitude,   
+        );
+    }
 }
