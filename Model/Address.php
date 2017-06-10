@@ -13,7 +13,7 @@ namespace ApiPostcode\Model;
  *
  * @author Api Postcode <info@api-postcode.nl>
  */
-class Address
+class Address implements \JsonSerializable
 {
     /** @var string */
     private $street;
@@ -125,4 +125,12 @@ class Address
             'latitude'     => $this->latitude,   
         );
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    function jsonSerialize()
+    {
+        return $this->toArray();
+    }    
 }
