@@ -48,12 +48,12 @@ class PostcodeClient
         $uri = sprintf("http://json.api-postcode.nl?postcode=%s&number=%s", $zipCode, $houseNumber);
         $curl = curl_init();
 
-        curl_setopt($curl, CURLOPT_URL,$uri);
+        curl_setopt($curl, CURLOPT_URL, $uri);
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers = [sprintf('Token: %s', $this->token)]);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [sprintf('Token: %s', $this->token)]);
 
-        $server_output = curl_exec ($curl);
+        $serverOutput = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if ($httpCode !== 200) {
@@ -62,7 +62,7 @@ class PostcodeClient
 
         curl_close($curl);
 
-        $responseData = json_decode($server_output, true);
+        $responseData = json_decode($serverOutput, true);
 
         $address = new Address(
             $responseData['street'],
