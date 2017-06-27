@@ -1,6 +1,6 @@
 {
   "name": "api-postcode/php-client",
-  "type": "php-client-api-postcode",
+  "type": "client",
   "description": "PHP Client Api Postcode",
   "keywords": [
     "Postcode",
