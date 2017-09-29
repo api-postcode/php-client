@@ -22,12 +22,12 @@ Usage
 $token = 'secret-token';
 $client = new ApiPostcode\Client\PostcodeClient($token);
 
-$address = $client->fetchAddress('1012JS', 1);
+$address = $client->fetchAddress('1082MD', 34);
 
-$address->getStreet();      // Dam
+$address->getStreet();      // Claude Debussylaan
 $address->getCity();        // Amsterdam
-$address->getHouseNumber(); // 1
-$address->getZipCode();     // 1012JS
-$address->getLatitude();    // 52.3732926
-$address->getLongitude();   // 4.8937176
+$address->getHouseNumber(); // 34
+$address->getZipCode();     // 1082MD
+$address->getLatitude();    // 52.3377074
+$address->getLongitude();   // 4.8719565
 ```
