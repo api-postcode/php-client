@@ -8,12 +8,14 @@
 
 namespace ApiPostcode\Model;
 
+use JsonSerializable;
+
 /**
  * Class Address
  *
  * @author Api Postcode <info@api-postcode.nl>
  */
-class Address implements \JsonSerializable
+class Address implements JsonSerializable
 {
     /** @var string */
     private $street;
@@ -27,11 +29,14 @@ class Address implements \JsonSerializable
     /** @var string */
     private $city;
 
-    /** @var string */
+    /** @var float */
     private $latitude;
 
-    /** @var string */
+    /** @var float */
     private $longitude;
+
+    /** @var string|null */
+    private $province;
 
     /**
      * @param string $street
@@ -39,7 +44,7 @@ class Address implements \JsonSerializable
      * @param string $houseNumber
      * @param string $city
      */
-    public function __construct($street, $zipCode, $houseNumber, $city)
+    public function __construct(string $street, string $zipCode, string $houseNumber, string $city)
     {
         $this->street      = $street;
         $this->zipCode     = $zipCode;
@@ -50,7 +55,7 @@ class Address implements \JsonSerializable
     /**
      * @return string
      */
-    public function getStreet()
+    public function getStreet(): string
     {
         return $this->street;
     }
@@ -58,7 +63,7 @@ class Address implements \JsonSerializable
     /**
      * @return string
      */
-    public function getZipCode()
+    public function getZipCode(): string
     {
         return $this->zipCode;
     }
@@ -66,7 +71,7 @@ class Address implements \JsonSerializable
     /**
      * @return string
      */
-    public function getHouseNumber()
+    public function getHouseNumber(): string
     {
         return $this->houseNumber;
     }
@@ -74,43 +79,59 @@ class Address implements \JsonSerializable
     /**
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLatitude()
+    public function getLatitude(): float
     {
         return $this->latitude;
     }
 
     /**
-     * @param string $latitude
+     * @param float $latitude
      */
-    public function setLatitude($latitude)
+    public function setLatitude(float $latitude)
     {
         $this->latitude = $latitude;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLongitude()
+    public function getLongitude(): float
     {
         return $this->longitude;
     }
 
     /**
-     * @param string $longitude
+     * @param float $longitude
      */
-    public function setLongitude($longitude)
+    public function setLongitude(float $longitude)
     {
         $this->longitude = $longitude;
     }
-    
+
+    /**
+     * @return string|null
+     */
+    public function getProvince(): ?string
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param string|null $province
+     */
+    public function setProvince(?string $province): void
+    {
+        $this->province = $province;
+    }
+
     /**
      * @return array
      */
@@ -122,15 +143,16 @@ class Address implements \JsonSerializable
             'house_number' => $this->houseNumber,
             'zip_code'     => $this->zipCode,
             'longitude'    => $this->longitude,
-            'latitude'     => $this->latitude,   
+            'latitude'     => $this->latitude,
+            'province'     => $this->province,
         );
     }
-    
+
     /**
      * {@inheritdoc}
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return $this->toArray();
-    }    
+    }
 }

@@ -73,6 +73,7 @@ class PostcodeClient
 
         $address->setLatitude($responseData['latitude']);
         $address->setLongitude($responseData['longitude']);
+        $address->setProvince($responseData['province']);
 
         return $address;
     }
