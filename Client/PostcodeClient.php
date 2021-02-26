@@ -45,7 +45,7 @@ class PostcodeClient
             throw new InvalidPostcodeException('Given postcode incorrect');
         }
 
-        $uri = sprintf("http://json.api-postcode.nl?postcode=%s&number=%s", $zipCode, $houseNumber);
+        $uri = sprintf("https://json.api-postcode.nl?postcode=%s&number=%s", $zipCode, $houseNumber);
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $uri);
