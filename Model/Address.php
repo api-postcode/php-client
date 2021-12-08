@@ -95,7 +95,7 @@ class Address implements JsonSerializable
     /**
      * @param float $latitude
      */
-    public function setLatitude(float $latitude)
+    public function setLatitude(float $latitude): void
     {
         $this->latitude = $latitude;
     }
@@ -111,7 +111,7 @@ class Address implements JsonSerializable
     /**
      * @param float $longitude
      */
-    public function setLongitude(float $longitude)
+    public function setLongitude(float $longitude): void
     {
         $this->longitude = $longitude;
     }
