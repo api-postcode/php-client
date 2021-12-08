@@ -1,6 +1,6 @@
 <?php
 /*
-* (c) Api Postcode <info@api-postcode.nl>
+* (c) Wessel Strengholt <wessel.strengholt@gmail.com>
 *
 * For the full copyright and license information, please view the LICENSE
 * file that was distributed with this source code.
@@ -39,7 +39,7 @@ class PostcodeClient
      *
      * @return Address
      */
-    public function fetchAddress($zipCode, $houseNumber)
+    public function fetchAddress($zipCode, $houseNumber): Address
     {
         if (0 === preg_match('/^[1-9]{1}[0-9]{3}[\s]{0,1}[a-z]{2}$/i', $zipCode)) {
             throw new InvalidPostcodeException('Given postcode incorrect');
